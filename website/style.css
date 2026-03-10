@@ -1,16 +1,17 @@
-/* Base reset and dark theme */
+/* Reset */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+/* Base */
 body {
-  background-color: #0f0f0f;
-  color: #d4d4d4;
+  background-color: #f7f7f5;
+  color: #111111;
   font-family: system-ui, sans-serif;
   font-size: 1rem;
-  line-height: 1.75;
+  line-height: 1.85;
 }
 
 /* Navigation */
@@ -19,10 +20,10 @@ nav {
   top: 0;
   left: 0;
   right: 0;
-  background-color: #1a1a1a;
-  border-bottom: 1px solid #2e2e2e;
+  background-color: #ffffff;
+  border-bottom: 1px solid #e2e2dc;
   padding: 0 2rem;
-  min-height: 56px;
+  min-height: 52px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -32,11 +33,12 @@ nav {
 }
 
 nav .site-name {
-  color: #a78bfa;
+  color: #1a3d2e;
   font-weight: 700;
-  font-size: 1.05rem;
+  font-size: 0.95rem;
   text-decoration: none;
   white-space: nowrap;
+  letter-spacing: 0.02em;
 }
 
 nav ul {
@@ -48,58 +50,65 @@ nav ul {
 }
 
 nav ul a {
-  color: #aaaaaa;
+  color: #666666;
   text-decoration: none;
-  font-size: 0.85rem;
+  font-size: 0.82rem;
   white-space: nowrap;
 }
 
 nav ul a:hover {
-  color: #a78bfa;
+  color: #1a3d2e;
 }
 
 /* Page content */
 main {
-  max-width: 740px;
+  max-width: 680px;
   margin: 0 auto;
-  padding: 120px 2rem 5rem;
+  padding: 100px 2rem 5rem;
 }
 
 h1 {
-  font-size: 2.2rem;
-  color: #60a5fa;
+  font-family: Georgia, serif;
+  font-size: 2.4rem;
+  font-weight: normal;
+  color: #111111;
   margin-bottom: 0.5rem;
+  line-height: 1.2;
 }
 
 .subtitle {
-  font-size: 1.1rem;
-  color: #888;
+  font-size: 1rem;
+  color: #666666;
   margin-bottom: 2rem;
 }
 
 h2 {
-  font-size: 1.3rem;
-  color: #a78bfa;
-  margin: 2.5rem 0 0.75rem;
-  padding-bottom: 0.4rem;
-  border-bottom: 1px solid #2e2e2e;
+  font-family: system-ui, sans-serif;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: #999999;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin: 3rem 0 1rem;
 }
 
 h3 {
+  font-family: system-ui, sans-serif;
   font-size: 1rem;
-  color: #e2e2e2;
-  margin: 1.25rem 0 0.4rem;
+  font-weight: 600;
+  color: #111111;
+  margin: 1.5rem 0 0.4rem;
 }
 
 p {
   margin-bottom: 1rem;
-  color: #c4c4c4;
+  color: #333333;
 }
 
 ul, ol {
   padding-left: 1.5rem;
   margin-bottom: 1rem;
-  color: #c4c4c4;
+  color: #333333;
 }
 
 li {
@@ -107,20 +116,45 @@ li {
 }
 
 strong {
-  color: #e2e2e2;
+  color: #111111;
 }
 
 hr {
   border: none;
-  border-top: 1px solid #2e2e2e;
-  margin: 2.5rem 0;
+  border-top: 1px solid #e2e2dc;
+  margin: 3rem 0;
+}
+
+/* Role nav — inline text line, not fixed bar */
+.role-nav {
+  font-size: 0.78rem;
+  color: #999999;
+  margin-bottom: 2.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1rem;
+  align-items: center;
+}
+
+.role-nav span {
+  color: #999999;
+}
+
+.role-nav a {
+  color: #666666;
+  text-decoration: none;
+}
+
+.role-nav a:hover {
+  color: #1a3d2e;
+  text-decoration: underline;
 }
 
 /* Journey steps on home page */
 .journey-steps {
   list-style: none;
   padding: 0;
-  margin: 1.5rem 0;
+  margin: 1rem 0;
   counter-reset: journey;
 }
 
@@ -130,13 +164,13 @@ hr {
   align-items: flex-start;
   gap: 1rem;
   padding: 0.9rem 1.25rem;
-  margin-bottom: 0.6rem;
-  background-color: #1a1a1a;
-  border: 1px solid #2e2e2e;
-  border-radius: 8px;
-  text-decoration: none;
-  color: #d4d4d4;
-  transition: border-color 0.2s;
+  margin-bottom: 0.5rem;
+  background-color: #ffffff;
+  border: 1px solid #e2e2dc;
+  border-radius: 0;
+  color: #333333;
+  transition: border-left-color 0.15s;
+  border-left: 3px solid transparent;
 }
 
 .journey-steps li:before {
@@ -144,12 +178,11 @@ hr {
   display: flex;
   align-items: center;
   justify-content: center;
-  min-width: 28px;
-  height: 28px;
-  background-color: #a78bfa22;
-  color: #a78bfa;
-  border-radius: 50%;
-  font-size: 0.8rem;
+  min-width: 24px;
+  height: 24px;
+  background-color: #f0f4f2;
+  color: #1a3d2e;
+  font-size: 0.75rem;
   font-weight: 700;
   flex-shrink: 0;
 }
@@ -164,277 +197,212 @@ hr {
 }
 
 .journey-steps li:hover {
-  border-color: #a78bfa;
+  border-left-color: #1a3d2e;
 }
 
 .journey-steps .step-title {
   font-weight: 600;
-  color: #ffffff;
+  color: #111111;
   display: block;
   margin-bottom: 0.15rem;
+  font-size: 0.95rem;
 }
 
 .journey-steps .step-desc {
-  font-size: 0.88rem;
-  color: #888;
+  font-size: 0.85rem;
+  color: #666666;
 }
 
 /* Card base */
 .card {
-  background-color: #1a1a1a;
-  border: 1px solid #2e2e2e;
-  border-radius: 8px;
+  background-color: #ffffff;
+  border: 1px solid #e2e2dc;
+  border-radius: 0;
   padding: 1.25rem 1.5rem;
   margin-bottom: 1rem;
 }
 
 .card .label {
-  font-size: 0.72rem;
+  font-size: 0.68rem;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: #a78bfa;
+  letter-spacing: 0.1em;
+  color: #1a3d2e;
   margin-bottom: 0.5rem;
   font-weight: 600;
 }
 
-/* Example cards with coloured left borders */
+/* Example cards */
 .example-bad {
-  background-color: #1a1a1a;
-  border: 1px solid #2e2e2e;
-  border-left: 3px solid #f87171;
-  border-radius: 8px;
+  background-color: #ffffff;
+  border: 1px solid #e2e2dc;
+  border-left: 2px solid #999999;
+  border-radius: 0;
   padding: 1rem 1.25rem;
   margin-bottom: 0.6rem;
 }
 
 .example-bad .label {
-  font-size: 0.72rem;
+  font-size: 0.68rem;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: #f87171;
+  letter-spacing: 0.1em;
+  color: #999999;
   margin-bottom: 0.4rem;
   font-weight: 600;
 }
 
 .example-better {
-  background-color: #1a1a1a;
-  border: 1px solid #2e2e2e;
-  border-left: 3px solid #fbbf24;
-  border-radius: 8px;
+  background-color: #ffffff;
+  border: 1px solid #e2e2dc;
+  border-left: 2px solid #999999;
+  border-radius: 0;
   padding: 1rem 1.25rem;
   margin-bottom: 0.6rem;
 }
 
 .example-better .label {
-  font-size: 0.72rem;
+  font-size: 0.68rem;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: #fbbf24;
+  letter-spacing: 0.1em;
+  color: #999999;
   margin-bottom: 0.4rem;
   font-weight: 600;
 }
 
 .example-best {
-  background-color: #1a1a1a;
-  border: 1px solid #2e2e2e;
-  border-left: 3px solid #34d399;
-  border-radius: 8px;
+  background-color: #ffffff;
+  border: 1px solid #e2e2dc;
+  border-left: 2px solid #1a3d2e;
+  border-radius: 0;
   padding: 1rem 1.25rem;
   margin-bottom: 0.6rem;
 }
 
 .example-best .label {
-  font-size: 0.72rem;
+  font-size: 0.68rem;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: #34d399;
+  letter-spacing: 0.1em;
+  color: #1a3d2e;
   margin-bottom: 0.4rem;
   font-weight: 600;
 }
 
-/* Tip card with purple left border */
+/* Tip card */
 .tip-card {
-  background-color: #1a1a1a;
-  border: 1px solid #2e2e2e;
-  border-left: 3px solid #a78bfa;
-  border-radius: 8px;
+  background-color: #ffffff;
+  border: 1px solid #e2e2dc;
+  border-left: 3px solid #1a3d2e;
+  border-radius: 0;
   padding: 1rem 1.25rem;
   margin-bottom: 1rem;
+  color: #333333;
 }
 
-/* Mistake card with red left border */
+/* Mistake card */
 .mistake-card {
-  background-color: #1a1a1a;
-  border: 1px solid #2e2e2e;
-  border-left: 3px solid #f87171;
-  border-radius: 8px;
+  background-color: #ffffff;
+  border: 1px solid #e2e2dc;
+  border-left: 2px solid #999999;
+  border-radius: 0;
   padding: 1.25rem 1.5rem;
   margin-bottom: 1rem;
 }
 
 .mistake-card h3 {
-  color: #f87171;
+  color: #111111;
   margin-top: 0;
 }
 
-/* Template card with teal left border */
+/* Template card */
 .template-card {
-  background-color: #1a1a1a;
-  border: 1px solid #2e2e2e;
-  border-left: 3px solid #2dd4bf;
-  border-radius: 8px;
+  background-color: #ffffff;
+  border: 1px solid #e2e2dc;
+  border-left: 3px solid #1a3d2e;
+  border-radius: 0;
   padding: 1.25rem 1.5rem;
   margin-bottom: 1rem;
 }
 
 .template-card .template-label {
-  font-size: 0.72rem;
+  font-size: 0.68rem;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: #2dd4bf;
+  letter-spacing: 0.1em;
+  color: #1a3d2e;
   margin-bottom: 0.5rem;
   font-weight: 600;
 }
 
 .template-card .prompt {
   font-style: italic;
-  color: #e2e2e2;
-  background-color: #111;
-  border-radius: 6px;
+  color: #333333;
+  background-color: #f7f7f5;
   padding: 0.75rem 1rem;
   margin-top: 0.5rem;
-  font-size: 0.95rem;
+  font-size: 0.93rem;
+  border: none;
 }
 
-/* Next step button */
+/* Copyable prompt block */
+.prompt-copy {
+  background-color: #f7f7f5;
+  border: 1px solid #e2e2dc;
+  border-left: 3px solid #1a3d2e;
+  border-radius: 0;
+  padding: 1rem 1.25rem;
+  margin: 0.75rem 0 1.25rem;
+  font-style: italic;
+  color: #333333;
+  font-size: 0.93rem;
+  line-height: 1.75;
+}
+
+/* Next step — plain text link */
 .next-step {
   display: inline-block;
   margin-top: 3rem;
-  padding: 0.75rem 1.75rem;
-  background-color: #a78bfa;
-  color: #0f0f0f;
+  color: #1a3d2e;
   text-decoration: none;
-  border-radius: 8px;
-  font-weight: 700;
   font-size: 0.95rem;
-  transition: background-color 0.2s;
+  font-weight: 600;
+  border-bottom: 1px solid #1a3d2e;
+  padding-bottom: 1px;
 }
 
 .next-step:hover {
-  background-color: #c4b5fd;
-}
-
-/* Home page link cards */
-.page-links {
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-  margin-top: 1.5rem;
-}
-
-.page-link {
-  display: block;
-  background-color: #1a1a1a;
-  border: 1px solid #2e2e2e;
-  border-radius: 8px;
-  padding: 1rem 1.5rem;
-  text-decoration: none;
-  color: #d4d4d4;
-  transition: border-color 0.2s;
-}
-
-.page-link:hover {
-  border-color: #a78bfa;
-}
-
-.page-link .link-title {
-  color: #ffffff;
-  font-weight: 600;
-  margin-bottom: 0.2rem;
-}
-
-.page-link .link-desc {
-  font-size: 0.88rem;
-  color: #888;
-}
-
-/* Role navigation bar */
-.role-nav {
-  position: fixed;
-  top: 56px;
-  left: 0;
-  right: 0;
-  background-color: #141414;
-  border-bottom: 1px solid #222;
-  padding: 0.4rem 2rem;
-  display: flex;
-  align-items: center;
-  gap: 1.5rem;
-  font-size: 0.8rem;
-  z-index: 99;
-  flex-wrap: wrap;
-}
-
-.role-nav span {
-  color: #555;
-  white-space: nowrap;
-}
-
-.role-nav a {
-  color: #888;
-  text-decoration: none;
-  white-space: nowrap;
-}
-
-.role-nav a:hover {
-  color: #a78bfa;
+  opacity: 0.7;
 }
 
 /* Role cards on home page */
 .role-cards {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   gap: 0.75rem;
-  margin: 1.5rem 0;
+  margin: 1rem 0;
 }
 
 .role-card {
   display: block;
-  background-color: #1a1a1a;
-  border: 1px solid #2e2e2e;
-  border-radius: 8px;
+  background-color: #ffffff;
+  border: 1px solid #e2e2dc;
+  border-radius: 0;
   padding: 1.25rem;
   text-decoration: none;
-  transition: border-color 0.2s;
+  transition: border-left-color 0.15s;
+  border-left: 3px solid transparent;
 }
 
 .role-card:hover {
-  border-color: #a78bfa;
+  border-left-color: #1a3d2e;
 }
 
 .role-card-title {
-  color: #ffffff;
+  color: #111111;
   font-weight: 700;
   margin-bottom: 0.4rem;
-  font-size: 0.95rem;
+  font-size: 0.93rem;
 }
 
 .role-card-desc {
-  color: #888;
+  color: #666666;
   font-size: 0.82rem;
   line-height: 1.5;
-}
-
-/* Copyable prompt block */
-.prompt-copy {
-  background-color: #0d1117;
-  border: 1px solid #2e2e2e;
-  border-left: 3px solid #2dd4bf;
-  border-radius: 8px;
-  padding: 1rem 1.25rem;
-  margin: 0.75rem 0 1.25rem;
-  font-style: italic;
-  color: #e2e2e2;
-  font-size: 0.93rem;
-  line-height: 1.75;
 }
