@@ -406,3 +406,12 @@ hr {
   font-size: 0.82rem;
   line-height: 1.5;
 }
+
+/* Page category label above H1 */
+.page-category {
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #999999;
+  margin-bottom: 0.5rem;
+}
