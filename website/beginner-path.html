@@ -20,6 +20,9 @@
       <li><a href="prompt-templates.html">Prompt Templates</a></li>
       <li><a href="safe-use.html">Safe Use</a></li>
     </ul>
+    <div class="nav-search">
+      <input type="search" placeholder="Search prompts…" id="nav-search-input" autocomplete="off" />
+    </div>
   </nav>
 
   <main>
@@ -117,5 +120,12 @@
     <a class="next-step" href="everyday-use.html">Next: Everyday Use Cases →</a>
   </main>
 
+  <script>
+    document.getElementById('nav-search-input').addEventListener('keydown', function(e) {
+      if (e.key === 'Enter' && this.value.trim()) {
+        window.location.href = 'search.html?q=' + encodeURIComponent(this.value.trim());
+      }
+    });
+  </script>
 </body>
 </html>
