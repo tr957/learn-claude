@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Search Prompts — Claude at 1kx</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <nav>
+    <a class="site-name" href="index.html">Claude at 1kx</a>
+    <ul>
+      <li><a href="beginner-path.html">Getting Started</a></li>
+      <li><a href="everyday-use.html">Everyday Use</a></li>
+      <li><a href="research-diligence.html">Research &amp; Diligence</a></li>
+      <li><a href="founder-meetings.html">Founder Meetings</a></li>
+      <li><a href="writing-comms.html">Writing &amp; Comms</a></li>
+      <li><a href="portfolio-support.html">Portfolio Support</a></li>
+      <li><a href="prompt-templates.html">Prompt Templates</a></li>
+      <li><a href="safe-use.html">Safe Use</a></li>
+    </ul>
+    <div class="nav-search">
+      <input type="search" placeholder="Search prompts…" id="nav-search-input" autocomplete="off" />
+    </div>
+  </nav>
+
+  <main>
+    <p class="page-category">Search</p>
+    <h1>Search Prompts</h1>
+    <p class="subtitle">Find any prompt across the site. Filter by role or type a keyword.</p>
+
+    <div class="search-controls">
+      <div class="search-input-wrap">
+        <input
+          type="search"
+          id="search-input"
+          placeholder="Type a keyword — e.g. diligence, memo, follow-up…"
+          autocomplete="off"
+        />
+      </div>
+      <div class="role-filters">
+        <button class="role-filter-btn" data-role="investment">Investment &amp; Research</button>
+        <button class="role-filter-btn" data-role="operations">Operations &amp; Comms</button>
+        <button class="role-filter-btn" data-role="platform">Platform &amp; Portfolio</button>
+      </div>
+    </div>
+
+    <div class="search-results">
+      <p class="search-status" id="search-status"></p>
+      <div id="results-container"></div>
+    </div>
+  </main>
+
+  <script src="search-data.js"></script>
+  <script>
+    const searchInput = document.getElementById('search-input');
+    const navInput = document.getElementById('nav-search-input');
+    const statusEl = document.getElementById('search-status');
+    const container = document.getElementById('results-container');
+    const roleButtons = document.querySelectorAll('.role-filter-btn');
+
+    let activeRoles = new Set();
+
+    // Read ?q= param on load
+    const params = new URLSearchParams(window.location.search);
+    const initialQuery = params.get('q') || '';
+    if (initialQuery) {
+      searchInput.value = initialQuery;
+    }
+
+    // Role filter toggle
+    roleButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const role = btn.dataset.role;
+        if (activeRoles.has(role)) {
+          activeRoles.delete(role);
+          btn.classList.remove('active');
+        } else {
+          activeRoles.add(role);
+          btn.classList.add('active');
+        }
+        runSearch();
+      });
+    });
+
+    // Live search on input
+    searchInput.addEventListener('input', runSearch);
+
+    // Nav input on this page just updates the main input
+    navInput.addEventListener('keydown', e => {
+      if (e.key === 'Enter' && navInput.value.trim()) {
+        searchInput.value = navInput.value.trim();
+        runSearch();
+        searchInput.focus();
+      }
+    });
+
+    function runSearch() {
+      const query = searchInput.value.trim().toLowerCase();
+      const hasQuery = query.length > 0;
+      const hasRoleFilter = activeRoles.size > 0;
+
+      if (!hasQuery && !hasRoleFilter) {
+        statusEl.textContent = '';
+        container.innerHTML = '<p class="search-empty">Type a keyword or select a role to find prompts.</p>';
+        return;
+      }
+
+      const results = SEARCH_DATA.filter(item => {
+        const matchesText = !hasQuery ||
+          item.label.toLowerCase().includes(query) ||
+          item.text.toLowerCase().includes(query) ||
+          item.section.toLowerCase().includes(query);
+
+        const matchesRole = !hasRoleFilter ||
+          item.roles.some(r => activeRoles.has(r));
+
+        return matchesText && matchesRole;
+      });
+
+      if (results.length === 0) {
+        statusEl.textContent = '';
+        container.innerHTML = '<p class="search-empty">No prompts match your search.</p>';
+        return;
+      }
+
+      statusEl.textContent = results.length + ' prompt' + (results.length === 1 ? '' : 's') + ' found';
+      container.innerHTML = results.map(item => `
+        <div class="search-result-card">
+          <div class="search-result-meta">${escapeHtml(item.pageName)} &rsaquo; ${escapeHtml(item.section)}</div>
+          <div class="search-result-label">${escapeHtml(item.label)}</div>
+          <div class="search-result-text">${escapeHtml(item.text)}</div>
+          <a class="search-result-link" href="${item.page}#${item.anchor}">View in context →</a>
+        </div>
+      `).join('');
+    }
+
+    function escapeHtml(str) {
+      return str
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;');
+    }
+
+    // Run on load if there's a query param
+    if (initialQuery) {
+      runSearch();
+    } else {
+      container.innerHTML = '<p class="search-empty">Type a keyword or select a role to find prompts.</p>';
+    }
+  </script>
+
+</body>
+</html>
