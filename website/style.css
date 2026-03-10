@@ -415,3 +415,143 @@ hr {
   color: #999999;
   margin-bottom: 0.5rem;
 }
+
+/* Search input in nav */
+.nav-search {
+  display: flex;
+  align-items: center;
+}
+
+.nav-search input {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #e2e2dc;
+  padding: 0.2rem 0.4rem;
+  font-size: 0.8rem;
+  font-family: system-ui, sans-serif;
+  color: #333333;
+  width: 140px;
+  outline: none;
+}
+
+.nav-search input::placeholder {
+  color: #999999;
+}
+
+.nav-search input:focus {
+  border-bottom-color: #1a3d2e;
+}
+
+/* Search page */
+.search-controls {
+  margin-bottom: 2rem;
+}
+
+.search-input-wrap {
+  margin-bottom: 1rem;
+}
+
+.search-input-wrap input {
+  width: 100%;
+  border: 1px solid #e2e2dc;
+  border-radius: 0;
+  padding: 0.65rem 0.9rem;
+  font-size: 1rem;
+  font-family: system-ui, sans-serif;
+  color: #111111;
+  background: #ffffff;
+  outline: none;
+}
+
+.search-input-wrap input:focus {
+  border-color: #1a3d2e;
+}
+
+.role-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.role-filter-btn {
+  background: #ffffff;
+  border: 1px solid #e2e2dc;
+  border-radius: 0;
+  padding: 0.3rem 0.75rem;
+  font-size: 0.78rem;
+  font-family: system-ui, sans-serif;
+  color: #666666;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.role-filter-btn:hover {
+  border-color: #1a3d2e;
+  color: #1a3d2e;
+}
+
+.role-filter-btn.active {
+  background: #1a3d2e;
+  border-color: #1a3d2e;
+  color: #ffffff;
+}
+
+/* Search results */
+.search-results {
+  margin-top: 1.5rem;
+}
+
+.search-status {
+  font-size: 0.82rem;
+  color: #999999;
+  margin-bottom: 1.5rem;
+}
+
+.search-result-card {
+  background: #ffffff;
+  border: 1px solid #e2e2dc;
+  border-left: 3px solid #1a3d2e;
+  padding: 1rem 1.25rem;
+  margin-bottom: 0.75rem;
+}
+
+.search-result-meta {
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #999999;
+  margin-bottom: 0.3rem;
+}
+
+.search-result-label {
+  font-weight: 600;
+  color: #111111;
+  font-size: 0.95rem;
+  margin-bottom: 0.5rem;
+}
+
+.search-result-text {
+  font-style: italic;
+  color: #333333;
+  font-size: 0.9rem;
+  line-height: 1.75;
+  margin-bottom: 0.6rem;
+}
+
+.search-result-link {
+  font-size: 0.78rem;
+  color: #1a3d2e;
+  text-decoration: none;
+  border-bottom: 1px solid #1a3d2e;
+  padding-bottom: 1px;
+}
+
+.search-result-link:hover {
+  opacity: 0.7;
+}
+
+.search-empty {
+  color: #666666;
+  font-size: 0.95rem;
+  margin-top: 2rem;
+}
