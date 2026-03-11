@@ -35,9 +35,10 @@
         <input
           type="search"
           id="search-input"
-          placeholder="Type a keyword — e.g. diligence, memo, follow-up…"
+          placeholder="Click to browse or type a keyword…"
           autocomplete="off"
         />
+        <div id="search-suggestions" class="search-suggestions"></div>
       </div>
       <div class="role-filters">
         <button class="role-filter-btn" data-role="investment">Investment &amp; Research</button>
@@ -59,8 +60,45 @@
     const statusEl = document.getElementById('search-status');
     const container = document.getElementById('results-container');
     const roleButtons = document.querySelectorAll('.role-filter-btn');
+    const suggestionsEl = document.getElementById('search-suggestions');
 
     let activeRoles = new Set();
+
+    // Build suggestion list from all prompt labels (deduplicated)
+    const allLabels = SEARCH_DATA.map(item => ({ label: item.label, pageName: item.pageName }));
+
+    function showSuggestions(query) {
+      const q = query.trim().toLowerCase();
+      const matches = q
+        ? allLabels.filter(s => s.label.toLowerCase().includes(q) || s.pageName.toLowerCase().includes(q))
+        : allLabels;
+
+      if (matches.length === 0) {
+        suggestionsEl.classList.remove('visible');
+        return;
+      }
+
+      suggestionsEl.innerHTML = matches.map(s =>
+        `<div class="search-suggestion-item" data-label="${escapeHtml(s.label)}">
+          ${escapeHtml(s.label)}
+          <span class="search-suggestion-meta">${escapeHtml(s.pageName)}</span>
+        </div>`
+      ).join('');
+
+      suggestionsEl.querySelectorAll('.search-suggestion-item').forEach(item => {
+        item.addEventListener('mousedown', e => {
+          e.preventDefault();
+          searchInput.value = item.dataset.label;
+          suggestionsEl.classList.remove('visible');
+          runSearch();
+        });
+      });
+
+      suggestionsEl.classList.add('visible');
+    }
+
+    searchInput.addEventListener('focus', () => showSuggestions(searchInput.value));
+    searchInput.addEventListener('blur', () => setTimeout(() => suggestionsEl.classList.remove('visible'), 150));
 
     // Read ?q= param on load
     const params = new URLSearchParams(window.location.search);
@@ -84,8 +122,11 @@
       });
     });
 
-    // Live search on input
-    searchInput.addEventListener('input', runSearch);
+    // Live search on input — also updates suggestions
+    searchInput.addEventListener('input', () => {
+      runSearch();
+      showSuggestions(searchInput.value);
+    });
 
     // Nav input on this page just updates the main input
     navInput.addEventListener('keydown', e => {
