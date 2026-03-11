@@ -433,11 +433,8 @@ hr {
   border-top: none;
   max-height: 280px;
   overflow-y: auto;
-  z-index: 200;
-}
-
-.search-suggestions.visible {
-  display: block;
+  z-index: 9999;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
 }
 
 .search-suggestion-item {

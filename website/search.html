@@ -33,7 +33,7 @@
     <div class="search-controls">
       <div class="search-input-wrap">
         <input
-          type="search"
+          type="text"
           id="search-input"
           placeholder="Click to browse or type a keyword…"
           autocomplete="off"
@@ -55,7 +55,6 @@
 
   <script src="search-data.js"></script>
   <script>
-    // Helpers defined first to avoid any ordering issues
     function escapeHtml(str) {
       return str
         .replace(/&/g, '&amp;')
@@ -65,61 +64,74 @@
         .replace(/'/g, '&#039;');
     }
 
-    const searchInput = document.getElementById('search-input');
-    const navInput = document.getElementById('nav-search-input');
-    const statusEl = document.getElementById('search-status');
-    const container = document.getElementById('results-container');
-    const roleButtons = document.querySelectorAll('.role-filter-btn');
-    const suggestionsEl = document.getElementById('search-suggestions');
+    function hideDropdown() {
+      suggestionsEl.style.display = 'none';
+    }
 
-    let activeRoles = new Set();
+    function showDropdown() {
+      suggestionsEl.style.display = 'block';
+    }
 
-    // All prompt labels for dropdown
-    const allLabels = SEARCH_DATA.map(item => ({ label: item.label, pageName: item.pageName }));
+    var searchInput = document.getElementById('search-input');
+    var navInput = document.getElementById('nav-search-input');
+    var statusEl = document.getElementById('search-status');
+    var container = document.getElementById('results-container');
+    var roleButtons = document.querySelectorAll('.role-filter-btn');
+    var suggestionsEl = document.getElementById('search-suggestions');
+
+    var activeRoles = new Set();
+    var allLabels = SEARCH_DATA.map(function(item) {
+      return { label: item.label, pageName: item.pageName };
+    });
 
     function showSuggestions(query) {
-      const q = query.trim().toLowerCase();
-      const matches = q
-        ? allLabels.filter(s => s.label.toLowerCase().includes(q) || s.pageName.toLowerCase().includes(q))
+      var q = query.trim().toLowerCase();
+      var matches = q
+        ? allLabels.filter(function(s) {
+            return s.label.toLowerCase().indexOf(q) !== -1 || s.pageName.toLowerCase().indexOf(q) !== -1;
+          })
         : allLabels;
 
       if (matches.length === 0) {
-        suggestionsEl.classList.remove('visible');
+        hideDropdown();
         return;
       }
 
-      suggestionsEl.innerHTML = matches.map(s =>
-        `<div class="search-suggestion-item" data-label="${escapeHtml(s.label)}">
-          ${escapeHtml(s.label)}
-          <span class="search-suggestion-meta">${escapeHtml(s.pageName)}</span>
-        </div>`
-      ).join('');
+      suggestionsEl.innerHTML = matches.map(function(s) {
+        return '<div class="search-suggestion-item" data-label="' + escapeHtml(s.label) + '">'
+          + escapeHtml(s.label)
+          + '<span class="search-suggestion-meta">' + escapeHtml(s.pageName) + '</span>'
+          + '</div>';
+      }).join('');
 
-      suggestionsEl.querySelectorAll('.search-suggestion-item').forEach(item => {
-        item.addEventListener('mousedown', e => {
-          e.preventDefault();
-          searchInput.value = item.dataset.label;
-          suggestionsEl.classList.remove('visible');
-          runSearch();
-        });
-      });
+      var items = suggestionsEl.querySelectorAll('.search-suggestion-item');
+      for (var i = 0; i < items.length; i++) {
+        (function(item) {
+          item.addEventListener('mousedown', function(e) {
+            e.preventDefault();
+            searchInput.value = item.getAttribute('data-label');
+            hideDropdown();
+            runSearch();
+          });
+        })(items[i]);
+      }
 
-      suggestionsEl.classList.add('visible');
+      showDropdown();
     }
 
     function runSearch() {
-      const query = searchInput.value.trim().toLowerCase();
-      const hasQuery = query.length > 0;
-      const hasRoleFilter = activeRoles.size > 0;
+      var query = searchInput.value.trim().toLowerCase();
+      var hasQuery = query.length > 0;
+      var hasRoleFilter = activeRoles.size > 0;
 
-      const results = SEARCH_DATA.filter(item => {
-        const matchesText = !hasQuery ||
-          item.label.toLowerCase().includes(query) ||
-          item.text.toLowerCase().includes(query) ||
-          item.section.toLowerCase().includes(query);
+      var results = SEARCH_DATA.filter(function(item) {
+        var matchesText = !hasQuery
+          || item.label.toLowerCase().indexOf(query) !== -1
+          || item.text.toLowerCase().indexOf(query) !== -1
+          || item.section.toLowerCase().indexOf(query) !== -1;
 
-        const matchesRole = !hasRoleFilter ||
-          item.roles.some(r => activeRoles.has(r));
+        var matchesRole = !hasRoleFilter
+          || item.roles.some(function(r) { return activeRoles.has(r); });
 
         return matchesText && matchesRole;
       });
@@ -131,52 +143,71 @@
       }
 
       statusEl.textContent = (!hasQuery && !hasRoleFilter)
-        ? '63 prompts — type to filter or select a role'
+        ? '63 prompts — click to browse or type to filter'
         : results.length + ' prompt' + (results.length === 1 ? '' : 's') + ' found';
-      container.innerHTML = results.map(item => `
-        <div class="search-result-card">
-          <div class="search-result-meta">${escapeHtml(item.pageName)} &rsaquo; ${escapeHtml(item.section)}</div>
-          <div class="search-result-label">${escapeHtml(item.label)}</div>
-          <div class="search-result-text">${escapeHtml(item.text)}</div>
-          <a class="search-result-link" href="${escapeHtml(item.page)}#${escapeHtml(item.anchor)}">View in context →</a>
-        </div>
-      `).join('');
+
+      container.innerHTML = results.map(function(item) {
+        return '<div class="search-result-card">'
+          + '<div class="search-result-meta">' + escapeHtml(item.pageName) + ' &rsaquo; ' + escapeHtml(item.section) + '</div>'
+          + '<div class="search-result-label">' + escapeHtml(item.label) + '</div>'
+          + '<div class="search-result-text">' + escapeHtml(item.text) + '</div>'
+          + '<a class="search-result-link" href="' + escapeHtml(item.page) + '#' + escapeHtml(item.anchor) + '">View in context &rarr;</a>'
+          + '</div>';
+      }).join('');
     }
 
-    // Event listeners
-    searchInput.addEventListener('focus', () => showSuggestions(searchInput.value));
-    searchInput.addEventListener('blur', () => setTimeout(() => suggestionsEl.classList.remove('visible'), 150));
-    searchInput.addEventListener('input', () => {
+    // Show dropdown on click/focus
+    searchInput.addEventListener('focus', function() {
+      showSuggestions(searchInput.value);
+    });
+
+    searchInput.addEventListener('click', function() {
+      showSuggestions(searchInput.value);
+    });
+
+    // Filter as you type
+    searchInput.addEventListener('input', function() {
       runSearch();
       showSuggestions(searchInput.value);
     });
 
-    roleButtons.forEach(btn => {
-      btn.addEventListener('click', () => {
-        const role = btn.dataset.role;
-        if (activeRoles.has(role)) {
-          activeRoles.delete(role);
-          btn.classList.remove('active');
-        } else {
-          activeRoles.add(role);
-          btn.classList.add('active');
-        }
-        runSearch();
-      });
+    // Close dropdown when clicking outside
+    document.addEventListener('click', function(e) {
+      if (!searchInput.contains(e.target) && !suggestionsEl.contains(e.target)) {
+        hideDropdown();
+      }
     });
 
-    navInput.addEventListener('keydown', e => {
+    // Role filters
+    for (var i = 0; i < roleButtons.length; i++) {
+      (function(btn) {
+        btn.addEventListener('click', function() {
+          var role = btn.getAttribute('data-role');
+          if (activeRoles.has(role)) {
+            activeRoles.delete(role);
+            btn.classList.remove('active');
+          } else {
+            activeRoles.add(role);
+            btn.classList.add('active');
+          }
+          runSearch();
+        });
+      })(roleButtons[i]);
+    }
+
+    // Nav search
+    navInput.addEventListener('keydown', function(e) {
       if (e.key === 'Enter' && navInput.value.trim()) {
         searchInput.value = navInput.value.trim();
-        suggestionsEl.classList.remove('visible');
+        hideDropdown();
         runSearch();
         searchInput.focus();
       }
     });
 
     // Pre-fill from ?q= param
-    const params = new URLSearchParams(window.location.search);
-    const initialQuery = params.get('q') || '';
+    var params = new URLSearchParams(window.location.search);
+    var initialQuery = params.get('q') || '';
     if (initialQuery) {
       searchInput.value = initialQuery;
     }
