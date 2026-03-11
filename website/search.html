@@ -196,15 +196,6 @@
     }
 
     // Nav search
-    navInput.addEventListener('keydown', function(e) {
-      if (e.key === 'Enter' && navInput.value.trim()) {
-        searchInput.value = navInput.value.trim();
-        hideDropdown();
-        runSearch();
-        searchInput.focus();
-      }
-    });
-
     // Pre-fill from ?q= param
     var params = new URLSearchParams(window.location.search);
     var initialQuery = params.get('q') || '';
@@ -215,6 +206,7 @@
     // Show all prompts on load
     runSearch();
   </script>
+  <script src="nav-search.js"></script>
 
 </body>
 </html>

@@ -490,6 +490,58 @@ hr {
   border-bottom-color: #1a3d2e;
 }
 
+/* Nav search dropdown — appended to nav, positioned below nav bar */
+.nav-search-dropdown {
+  position: absolute;
+  top: 100%;
+  right: 2rem;
+  width: 360px;
+  max-width: calc(100vw - 4rem);
+  background: #ffffff;
+  border: 1px solid #1a3d2e;
+  border-top: none;
+  max-height: 320px;
+  overflow-y: auto;
+  z-index: 9999;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.nav-suggestion-item {
+  padding: 0.45rem 0.9rem;
+  font-size: 0.82rem;
+  color: #333333;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  border-bottom: 1px solid #f0f0ee;
+  gap: 1rem;
+}
+
+.nav-suggestion-item:last-child {
+  border-bottom: none;
+}
+
+.nav-suggestion-item:hover {
+  background: #f0f4f2;
+  color: #1a3d2e;
+}
+
+.nav-suggestion-label {
+  flex: 1;
+  min-width: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.nav-suggestion-meta {
+  font-size: 0.68rem;
+  color: #999999;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
 /* Search page */
 .search-controls {
   margin-bottom: 2rem;
