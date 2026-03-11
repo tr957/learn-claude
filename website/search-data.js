@@ -576,5 +576,34 @@ const SEARCH_DATA = [
     pageName: "Portfolio Support",
     roles: ["platform"],
     anchor: "portfolio-multiple-updates"
+  },
+
+  // GOING FURTHER
+  {
+    label: "Cross-document contradiction check",
+    text: "Based on everything here, what claims in the deck are not supported by — or directly contradict — the technical documentation?",
+    section: "Working across a project",
+    page: "going-further.html",
+    pageName: "Going Further",
+    roles: ["investment"],
+    anchor: "further-contradiction-check"
+  },
+  {
+    label: "Reusable meeting summary skill",
+    text: "When I give you notes from a founder call, always produce the following: one paragraph of context on the company, the three most important claims the founder made, two open questions that were not answered, and a recommended next step. Keep the whole thing under 300 words.",
+    section: "Turning repeated work into a reusable skill",
+    page: "going-further.html",
+    pageName: "Going Further",
+    roles: ["investment", "operations", "platform"],
+    anchor: "further-meeting-skill"
+  },
+  {
+    label: "Pre-investment deck summary",
+    text: "Summarise this deck. Focus on: token economics, founding team credentials, and the three strongest competitive risks. Format as three short sections.",
+    section: "From one-off prompt to repeatable workflow",
+    page: "going-further.html",
+    pageName: "Going Further",
+    roles: ["investment"],
+    anchor: "further-deck-summary"
   }
 ];
