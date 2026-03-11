@@ -55,6 +55,16 @@
 
   <script src="search-data.js"></script>
   <script>
+    // Helpers defined first to avoid any ordering issues
+    function escapeHtml(str) {
+      return str
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#039;');
+    }
+
     const searchInput = document.getElementById('search-input');
     const navInput = document.getElementById('nav-search-input');
     const statusEl = document.getElementById('search-status');
@@ -64,7 +74,7 @@
 
     let activeRoles = new Set();
 
-    // Build suggestion list from all prompt labels (deduplicated)
+    // All prompt labels for dropdown
     const allLabels = SEARCH_DATA.map(item => ({ label: item.label, pageName: item.pageName }));
 
     function showSuggestions(query) {
@@ -97,51 +107,10 @@
       suggestionsEl.classList.add('visible');
     }
 
-    searchInput.addEventListener('focus', () => showSuggestions(searchInput.value));
-    searchInput.addEventListener('blur', () => setTimeout(() => suggestionsEl.classList.remove('visible'), 150));
-
-    // Read ?q= param on load
-    const params = new URLSearchParams(window.location.search);
-    const initialQuery = params.get('q') || '';
-    if (initialQuery) {
-      searchInput.value = initialQuery;
-    }
-
-    // Role filter toggle
-    roleButtons.forEach(btn => {
-      btn.addEventListener('click', () => {
-        const role = btn.dataset.role;
-        if (activeRoles.has(role)) {
-          activeRoles.delete(role);
-          btn.classList.remove('active');
-        } else {
-          activeRoles.add(role);
-          btn.classList.add('active');
-        }
-        runSearch();
-      });
-    });
-
-    // Live search on input — also updates suggestions
-    searchInput.addEventListener('input', () => {
-      runSearch();
-      showSuggestions(searchInput.value);
-    });
-
-    // Nav input on this page just updates the main input
-    navInput.addEventListener('keydown', e => {
-      if (e.key === 'Enter' && navInput.value.trim()) {
-        searchInput.value = navInput.value.trim();
-        runSearch();
-        searchInput.focus();
-      }
-    });
-
     function runSearch() {
       const query = searchInput.value.trim().toLowerCase();
       const hasQuery = query.length > 0;
       const hasRoleFilter = activeRoles.size > 0;
-
 
       const results = SEARCH_DATA.filter(item => {
         const matchesText = !hasQuery ||
@@ -174,16 +143,45 @@
       `).join('');
     }
 
-    function escapeHtml(str) {
-      return str
-        .replace(/&/g, '&amp;')
-        .replace(/</g, '&lt;')
-        .replace(/>/g, '&gt;')
-        .replace(/"/g, '&quot;')
-        .replace(/'/g, '&#039;');
+    // Event listeners
+    searchInput.addEventListener('focus', () => showSuggestions(searchInput.value));
+    searchInput.addEventListener('blur', () => setTimeout(() => suggestionsEl.classList.remove('visible'), 150));
+    searchInput.addEventListener('input', () => {
+      runSearch();
+      showSuggestions(searchInput.value);
+    });
+
+    roleButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const role = btn.dataset.role;
+        if (activeRoles.has(role)) {
+          activeRoles.delete(role);
+          btn.classList.remove('active');
+        } else {
+          activeRoles.add(role);
+          btn.classList.add('active');
+        }
+        runSearch();
+      });
+    });
+
+    navInput.addEventListener('keydown', e => {
+      if (e.key === 'Enter' && navInput.value.trim()) {
+        searchInput.value = navInput.value.trim();
+        suggestionsEl.classList.remove('visible');
+        runSearch();
+        searchInput.focus();
+      }
+    });
+
+    // Pre-fill from ?q= param
+    const params = new URLSearchParams(window.location.search);
+    const initialQuery = params.get('q') || '';
+    if (initialQuery) {
+      searchInput.value = initialQuery;
     }
 
-    // Run on load — shows all prompts by default
+    // Show all prompts on load
     runSearch();
   </script>
 

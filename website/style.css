@@ -419,6 +419,7 @@ hr {
 /* Search suggestions dropdown */
 .search-input-wrap {
   position: relative;
+  margin-bottom: 1rem;
 }
 
 .search-suggestions {
@@ -495,10 +496,6 @@ hr {
 /* Search page */
 .search-controls {
   margin-bottom: 2rem;
-}
-
-.search-input-wrap {
-  margin-bottom: 1rem;
 }
 
 .search-input-wrap input {
