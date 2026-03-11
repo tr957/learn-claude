@@ -16,12 +16,16 @@
       <li><a href="founder-meetings.html">Founder Meetings</a></li>
       <li><a href="writing-comms.html">Writing &amp; Comms</a></li>
       <li><a href="portfolio-support.html">Portfolio Support</a></li>
+      <li class="nav-sep" aria-hidden="true"></li>
+      <li><a href="thinking-tools.html">Thinking Tools</a></li>
+      <li><a href="workflows.html">Workflows</a></li>
+      <li><a href="skills.html">Skills</a></li>
+      <li><a href="claude-code.html">Claude Code</a></li>
       <li><a href="prompt-templates.html">Prompt Templates</a></li>
-      <li><a href="going-further.html">Going Further</a></li>
       <li><a href="safe-use.html">Safe Use</a></li>
     </ul>
     <div class="nav-search">
-      <input type="search" placeholder="Search prompts…" id="nav-search-input" autocomplete="off" />
+      <input type="text" placeholder="Search promptsâ¦" id="nav-search-input" autocomplete="off" />
     </div>
   </nav>
 
@@ -35,48 +39,47 @@
 
     <p class="page-category">Research &amp; Diligence</p>
     <h1>Research &amp; Diligence</h1>
-    <p class="subtitle">Scouting, briefs, comparisons, and diligence prep — faster.</p>
+    <p class="subtitle">Scouting, structuring, comparing, and stress-testing â the research layer before a decision.</p>
 
-    <h2>Scouting a new project</h2>
-    <p><strong>When to use:</strong> You've come across a project and want a fast first-pass view before deciding whether to look deeper.</p>
-    <p><strong>What to paste in:</strong> The project's website copy, whitepaper intro, or any description you have.</p>
+    <h2>First-pass on a new project</h2>
+    <p><strong>When to use:</strong> You have come across a project and want a fast, structured view before deciding whether to go deeper.</p>
+    <p><strong>What to paste in:</strong> Website copy, whitepaper intro, a deck summary, or any description you have.</p>
 
-    <div class="prompt-copy" id="research-first-pass">"Here is a brief description of a project: [paste]. Give me a first-pass view covering: what it does, the problem it's solving, who the target users are, and any obvious risks or red flags."</div>
-    <div class="prompt-copy" id="research-first-look">"I'm doing a first look at [project name]. Here is their whitepaper introduction: [paste]. What are the 3 most important questions I should investigate before going further?"</div>
+    <div class="prompt-copy" id="research-first-pass">âHere is a description of a project: [paste]. Give me a first-pass view covering: what it does and what problem it solves, who the target users are, how the token model works, and the two or three most obvious risks or questions I should investigate further.â</div>
+    <div class="prompt-copy" id="research-first-look">âIâm doing a first look at [project name]. Here is their whitepaper introduction: [paste]. What are the three most important things to investigate before going further â and what would a good answer to each look like?â</div>
 
-    <h2>Writing a first-pass project brief</h2>
-    <p><strong>When to use:</strong> You've done initial research and want to turn your notes into a structured brief to share internally.</p>
-    <p><strong>What to paste in:</strong> Your research notes, any relevant documents, and the structure you want to use.</p>
+    <h2>Identifying what actually matters</h2>
+    <p><strong>When to use:</strong> You have enough information to start forming a view but want to be deliberate about where to focus your diligence time.</p>
 
-    <div class="prompt-copy" id="research-draft-brief">"Here are my research notes on [project]: [paste notes]. Draft a first-pass project brief with the following sections: Overview, Problem &amp; Solution, Market &amp; Differentiation, Team, Key Risks, Open Questions."</div>
-    <div class="prompt-copy" id="research-concise-brief">"Based on the following information about [project], write a concise project brief (max 400 words) for internal review. Highlight what's interesting and what needs more investigation. Information: [paste]."</div>
+    <div class="prompt-copy" id="research-what-matters">âHere is what I know about [project] so far: [paste]. Given this, what are the two or three things that will most determine whether this is a good investment? Not a comprehensive checklist â the specific factors the whole investment case hinges on.â</div>
+    <div class="prompt-copy" id="research-verify-top5">âBased on this project description, what are the five most important claims to verify independently during diligence? For each one, suggest where the evidence would actually come from. Project description: [paste].â</div>
 
-    <h2>Comparing projects or competitors</h2>
-    <p><strong>When to use:</strong> You're evaluating multiple projects in the same space and want a structured side-by-side view.</p>
-    <p><strong>What to paste in:</strong> Notes or descriptions for each project. The more detail per project, the better the comparison.</p>
+    <h2>Comparing projects in a space</h2>
+    <p><strong>When to use:</strong> You are evaluating multiple projects in the same category and want a structured view of how they actually differ.</p>
+    <p><strong>What to paste in:</strong> Notes or descriptions for each project. The more specific the input, the more useful the comparison.</p>
 
-    <div class="prompt-copy" id="research-compare-two">"Compare [Project A] and [Project B] across the following dimensions: technology approach, target market, tokenomics, team background, and current traction. Present as a structured table. Flag where information is limited or unclear."</div>
-    <div class="prompt-copy" id="research-compare-three">"Here are notes on three projects in the [sector] space: [paste]. Which looks most differentiated and why? What are the key trade-offs between them from an investment perspective?"</div>
-    <div class="prompt-copy" id="research-competitive-landscape">"I'm trying to understand the competitive landscape for [space]. Here are the main players I know of: [list]. What are the key dimensions to compare them on, and based on what I've shared, how do they stack up?"</div>
+    <div class="prompt-copy" id="research-compare-two">âCompare [Project A] and [Project B] across: technology approach, token model, target market, team background, and current traction. Present as a structured table. Where information is limited or unclear, flag it rather than inferring.â</div>
+    <div class="prompt-copy" id="research-compare-three">âHere are notes on three projects in the [sector] space: [paste]. Which looks most differentiated and why? What are the key trade-offs between them from an investment perspective?â</div>
+    <div class="prompt-copy" id="research-competitive-landscape">âIâm mapping the competitive landscape for [space]. Here are the main projects I know of: [list]. What are the most important dimensions to compare them on? Based on what Iâve shared, how do they stack up?â</div>
 
-    <h2>Summarising research for a partner meeting</h2>
-    <p><strong>When to use:</strong> You've done research on a project and need to condense it into something sharp before a team or partner discussion.</p>
+    <h2>Evaluating a technical whitepaper</h2>
+    <p><strong>When to use:</strong> You need to assess technical claims in a whitepaper without deep technical expertise yourself.</p>
 
-    <div class="prompt-copy" id="research-partner-briefing">"I've gathered the following research on [project]: [paste]. Summarise this into a 5-minute briefing document. Structure it as: What they do, Why it's interesting, Key concerns, and Questions to resolve."</div>
-    <div class="prompt-copy" id="research-three-paragraph">"Here are my notes on [project]: [paste]. Write a 3-paragraph summary I can share before a partner meeting. Be direct about what's compelling and what's uncertain."</div>
+    <div class="prompt-copy" id="research-technical-whitepaper">âHere is a technical whitepaper: [paste]. Summarise the key technical claims. For each significant claim, flag: whether it is well-supported within the paper, whether it is novel or common in this space, and whether it is something an engineer should verify independently.â</div>
+    <div class="prompt-copy" id="research-token-model">âHere is a description of the token model for [project]: [paste]. Walk me through how this model works in practice. What are the incentive structures for different participant types? What happens to token price and holder behaviour under adverse conditions â market drawdown, team token unlocks, or a competing protocol with better incentives?â</div>
 
-    <h2>Due diligence prep</h2>
-    <p><strong>When to use:</strong> You're moving into deeper diligence and want to make sure you're asking the right questions across the right areas.</p>
+    <h2>Diligence gap analysis</h2>
+    <p><strong>When to use:</strong> You are preparing for deeper diligence and want a structured map of what you know, what you have been told, and what is still missing.</p>
 
-    <div class="prompt-copy" id="research-diligence-checklist">"I'm preparing due diligence on [project]. Here's what I know so far: [paste]. Generate a due diligence checklist covering: technical architecture, team &amp; background, market &amp; competition, legal &amp; regulatory risks, tokenomics, and community/ecosystem."</div>
-    <div class="prompt-copy" id="research-verify-top5">"Based on this project description, what are the 5 most important things to verify independently during diligence? [paste description]"</div>
-    <div class="prompt-copy" id="research-technical-whitepaper">"Here is a technical whitepaper: [paste]. Summarise the key technical claims being made and flag any that seem unsubstantiated or that I should verify with an engineer."</div>
+    <div class="prompt-copy" id="research-diligence-checklist">âIâm preparing due diligence on [project]. Hereâs what I know so far: [paste]. Organise what I have into: confirmed (evidence Iâve seen), claimed (stated but not yet verified), and unknown (not addressed). Then list the five most important gaps to close before making a decision.â</div>
 
     <div class="tip-card">
-      <strong>Important:</strong> Claude doesn't have real-time internet access and may have outdated information about specific projects. Use it to structure thinking and draft documents — always verify facts and figures from primary sources.
+      <strong>Important:</strong> Claude does not have real-time internet access and may have outdated information about specific projects. Use it to structure thinking, generate questions, and stress-test analysis â always verify facts and figures from primary sources.
     </div>
 
-    <a class="next-step" href="founder-meetings.html">Next: Founder Meetings →</a>
+    <p>For deeper analytical work â red-teaming a thesis, mapping assumptions, finding contradictions across documents â see <a href="thinking-tools.html">Thinking Tools</a>.</p>
+
+    <a class="next-step" href="founder-meetings.html">Next: Founder Meetings â</a>
   </main>
 
   <script src="search-data.js"></script>

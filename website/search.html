@@ -17,8 +17,12 @@
       <li><a href="founder-meetings.html">Founder Meetings</a></li>
       <li><a href="writing-comms.html">Writing &amp; Comms</a></li>
       <li><a href="portfolio-support.html">Portfolio Support</a></li>
+      <li class="nav-sep" aria-hidden="true"></li>
+      <li><a href="thinking-tools.html">Thinking Tools</a></li>
+      <li><a href="workflows.html">Workflows</a></li>
+      <li><a href="skills.html">Skills</a></li>
+      <li><a href="claude-code.html">Claude Code</a></li>
       <li><a href="prompt-templates.html">Prompt Templates</a></li>
-      <li><a href="going-further.html">Going Further</a></li>
       <li><a href="safe-use.html">Safe Use</a></li>
     </ul>
     <div class="nav-search">
@@ -144,7 +148,7 @@
       }
 
       statusEl.textContent = (!hasQuery && !hasRoleFilter)
-        ? '66 prompts — click to browse or type to filter'
+        ? '71 prompts — click to browse or type to filter'
         : results.length + ' prompt' + (results.length === 1 ? '' : 's') + ' found';
 
       container.innerHTML = results.map(function(item) {

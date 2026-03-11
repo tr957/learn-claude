@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Skills — Claude at 1kx</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <nav>
+    <a class="site-name" href="index.html">Claude at 1kx</a>
+    <ul>
+      <li><a href="beginner-path.html">Getting Started</a></li>
+      <li><a href="everyday-use.html">Everyday Use</a></li>
+      <li><a href="research-diligence.html">Research &amp; Diligence</a></li>
+      <li><a href="founder-meetings.html">Founder Meetings</a></li>
+      <li><a href="writing-comms.html">Writing &amp; Comms</a></li>
+      <li><a href="portfolio-support.html">Portfolio Support</a></li>
+      <li class="nav-sep" aria-hidden="true"></li>
+      <li><a href="thinking-tools.html">Thinking Tools</a></li>
+      <li><a href="workflows.html">Workflows</a></li>
+      <li><a href="skills.html">Skills</a></li>
+      <li><a href="claude-code.html">Claude Code</a></li>
+      <li><a href="prompt-templates.html">Prompt Templates</a></li>
+      <li><a href="safe-use.html">Safe Use</a></li>
+    </ul>
+    <div class="nav-search">
+      <input type="text" placeholder="Search prompts…" id="nav-search-input" autocomplete="off" />
+    </div>
+  </nav>
+
+  <main>
+    <p class="page-category">Advanced</p>
+    <h1>Skills</h1>
+    <p class="subtitle">Instructions you write once that Claude follows every time — so you never re-explain your preferences, format, or context.</p>
+
+    <h2>What a skill is</h2>
+    <p>Every time you start a new chat, Claude starts completely fresh. It does not know who you are, what you need, or how you like things structured. If you run the same type of task regularly — meeting summaries, screening notes, outreach messages — you are re-explaining yourself from scratch every single time.</p>
+    <p>A skill fixes this. You write down your instructions once — the format you want, the context Claude needs, what to include and what to skip — and paste them at the start of any conversation. Claude follows them automatically. You can also save skills in Claude's Projects feature so they load without any pasting at all.</p>
+    <div class="tip-card"><strong>Best when:</strong> you have run the same type of prompt three or more times and found yourself retyping setup instructions. If you're explaining your role, your firm, or your preferred format every time — write a skill.</div>
+
+    <h2>What makes a good skill</h2>
+    <p>A weak skill says: <em>"Summarise things professionally."</em> That's just a prompt. A good skill is more like an operating brief — specific enough that Claude produces the same structure every time, with enough context to understand what actually matters.</p>
+    <ul>
+      <li><strong>Format:</strong> Tell Claude exactly what sections you want and in what order</li>
+      <li><strong>Constraints:</strong> Specify length limits, what to skip, what never to do</li>
+      <li><strong>Context:</strong> Explain who you are and what you're working on</li>
+      <li><strong>Quality bar:</strong> Describe what a good output looks like — specific, not generic</li>
+    </ul>
+
+    <h2>Meeting summary skill</h2>
+    <p>Paste this at the start of any conversation where you want to process founder call notes. You will get the same clean structure every time, without any additional instructions.</p>
+
+    <div class="prompt-copy" id="skill-meeting-template">"You are helping me process notes from founder calls at 1kx, a crypto-native early-stage VC. When I give you raw call notes, always produce the following in this exact structure:
+
+COMPANY: [name]
+DATE: [date if mentioned]
+CONTEXT: [one sentence on what they do]
+KEY CLAIMS: [3–5 bullet points of the most important things the founder said]
+GAPS: [2–3 questions that came up but were not answered]
+NEXT STEP: [one sentence on what happens next]
+
+Keep the total under 300 words. Do not add information I have not provided. Do not pad with commentary."</div>
+
+    <h2>Investment screening skill</h2>
+    <p>A consistent first-pass template for evaluating new projects. Paste this when screening a deck or whitepaper and you will get the same structured output regardless of how varied the input is.</p>
+
+    <div class="prompt-copy" id="skill-deck-screening">"You are helping me do first-pass screening of crypto and web3 investment opportunities at 1kx. When I give you a pitch deck, whitepaper, or project description, always produce:
+
+WHAT IT IS: [2–3 sentences on the product or protocol — what it does and who it is for]
+TOKEN MODEL: [how value accrues, key emission and vesting mechanics, any unusual design choices]
+TEAM: [relevant credentials, prior projects, anything worth flagging]
+COMPETITIVE POSITION: [who else is doing this and what the real differentiation is — not just their claimed differentiation]
+MAIN RISKS: [the three strongest arguments against investing in this specific project]
+
+Be specific to this project. Avoid observations that would apply to any crypto project."</div>
+
+    <h2>Outreach skill</h2>
+    <p>Ensures every external message from 1kx is direct, specific, and professional — without needing to re-brief Claude on tone and format each time.</p>
+
+    <div class="prompt-copy" id="skill-outreach">"You are helping me write external communications on behalf of 1kx, a crypto-native early-stage VC. When I give you an outreach task, produce a message that is:
+
+- Specific: mention exactly why we're reaching out to this person or project
+- Brief: under 5 sentences for most messages
+- Direct but not cold: warm tone, no corporate filler
+- Ends with a single clear ask or next step
+
+Never use: 'I hope this finds you well', 'I wanted to reach out', 'touch base', 'circle back', or any other generic opener or closer.
+
+Always include: who we are (1kx), why we're contacting this specific person, and what we're proposing."</div>
+
+    <h2>Using Projects for persistent context</h2>
+    <p>Claude's Projects feature takes skills one step further. Instead of pasting your instructions at the start of each conversation, you write them once into a Project and they are automatically loaded every time you open that Project.</p>
+    <p>Projects also let you upload files — documents, past memos, research notes — that Claude can reference across multiple conversations. This means you can work through a deal over several sessions without re-uploading anything.</p>
+    <div class="tip-card"><strong>Best when:</strong> you work on the same type of task repeatedly, want your skill to load automatically without pasting, or are doing ongoing work on a specific deal or project where you want Claude to have persistent access to the relevant documents.</div>
+    <p>A typical 1kx Project setup for deal work: the investment skill saved as instructions, the company's whitepaper and deck uploaded as files, and a running document of notes from calls appended after each meeting.</p>
+
+    <h2>Sharing skills with the team</h2>
+    <p>Skills only have value if they are used consistently. Once you've refined a skill and it reliably produces useful output, share it. The simplest way is a shared document that the team can copy from. The skills on this page are a starting point — treat them as templates, not finished products. Adjust the format and constraints to match how your team actually works.</p>
+
+    <a class="next-step" href="claude-code.html">Next: Claude Code →</a>
+  </main>
+
+  <script src="search-data.js"></script>
+  <script src="nav-search.js"></script>
+</body>
+</html>

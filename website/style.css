@@ -60,6 +60,15 @@ nav ul a:hover {
   color: #1a3d2e;
 }
 
+.nav-sep {
+  width: 1px;
+  height: 13px;
+  background-color: #d8d8d2;
+  align-self: center;
+  list-style: none;
+  flex-shrink: 0;
+}
+
 /* Page content */
 main {
   max-width: 680px;

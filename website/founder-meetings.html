@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Founder Meetings — Claude at 1kx</title>
+  <title>Founder Meetings â Claude at 1kx</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -16,12 +16,16 @@
       <li><a href="founder-meetings.html">Founder Meetings</a></li>
       <li><a href="writing-comms.html">Writing &amp; Comms</a></li>
       <li><a href="portfolio-support.html">Portfolio Support</a></li>
+      <li class="nav-sep" aria-hidden="true"></li>
+      <li><a href="thinking-tools.html">Thinking Tools</a></li>
+      <li><a href="workflows.html">Workflows</a></li>
+      <li><a href="skills.html">Skills</a></li>
+      <li><a href="claude-code.html">Claude Code</a></li>
       <li><a href="prompt-templates.html">Prompt Templates</a></li>
-      <li><a href="going-further.html">Going Further</a></li>
       <li><a href="safe-use.html">Safe Use</a></li>
     </ul>
     <div class="nav-search">
-      <input type="search" placeholder="Search prompts…" id="nav-search-input" autocomplete="off" />
+      <input type="text" placeholder="Search promptsâ¦" id="nav-search-input" autocomplete="off" />
     </div>
   </nav>
 
@@ -35,42 +39,40 @@
 
     <p class="page-category">Founder Meetings</p>
     <h1>Founder Meetings</h1>
-    <p class="subtitle">Prep before the call. Clean summaries and follow-ups after.</p>
+    <p class="subtitle">Get up to speed quickly before. Get a clean, analytical record after.</p>
 
     <h2>Before the call: getting up to speed</h2>
     <p><strong>When to use:</strong> You have a founder call in the next few hours and need to understand the project quickly.</p>
-    <p><strong>What to paste in:</strong> The project's website, whitepaper intro, or any materials they've shared.</p>
+    <p><strong>What to paste in:</strong> The projectâs website, whitepaper intro, or any materials they have shared.</p>
 
-    <div class="prompt-copy" id="meetings-get-up-to-speed">"Here is the website and/or whitepaper for [project]: [paste]. Give me: a one-paragraph overview of what they do, 3 things that seem genuinely interesting or differentiated, and 3 things I should probe on in the meeting."</div>
-    <div class="prompt-copy" id="meetings-call-prep">"I have a call with the team at [project] in 2 hours. Here's what I know about them: [paste]. What should I know going in, and what's still unclear?"</div>
+    <div class="prompt-copy" id="meetings-get-up-to-speed">âHere is the website and/or whitepaper for [project]: [paste]. Give me: a one-paragraph overview of what they do, the two or three things that seem genuinely interesting or differentiated, and the two or three things I should probe on in the meeting.â</div>
+    <div class="prompt-copy" id="meetings-call-prep">âI have a call with the team at [project] in 2 hours. Hereâs what I know about them: [paste]. What should I understand going in, and what is still unclear enough that I should ask directly?â</div>
 
-    <h2>Before the call: generating sharp questions</h2>
-    <p><strong>When to use:</strong> You want to go into the meeting with well-prepared, specific questions rather than generic ones.</p>
+    <h2>Before the call: surfacing what to probe</h2>
+    <p><strong>When to use:</strong> You want to go into the meeting knowing exactly where the weak points in the pitch are â not with a generic question list, but with questions specific to this project.</p>
 
-    <div class="prompt-copy" id="meetings-sharp-questions">"I'm meeting with the founders of [project], which is [one-line description]. Generate 10 specific questions covering: product differentiation, go-to-market strategy, tokenomics design, team background, and the key risks I should understand."</div>
-    <div class="prompt-copy" id="meetings-push-back">"Based on this project description, what are the 5 most important things to push back on or probe during the meeting? [paste description]"</div>
-    <div class="prompt-copy" id="meetings-test-thinking">"Generate 5 questions that would reveal whether this team has genuinely thought through [the hardest part of their business — e.g. distribution, regulation, technical complexity]. Project description: [paste]."</div>
+    <div class="prompt-copy" id="meetings-push-back">âHere is what I know about [project]: [paste description or deck summary]. What are the five things in this pitch that are most likely to be overstated, underexplained, or harder than theyâre making it sound? Draft a specific question for each one.â</div>
+    <div class="prompt-copy" id="meetings-test-thinking">âGenerate five questions that would reveal whether this team has genuinely solved [the hardest problem in their business â e.g. distribution, regulatory risk, technical architecture]. Not questions theyâve prepared for â questions that require them to think on their feet. Project description: [paste].â</div>
 
-    <h2>After the call: turning notes into an internal summary</h2>
-    <p><strong>When to use:</strong> You've taken rough notes during the call and want a clean, structured internal summary to share or file.</p>
-    <p><strong>What to paste in:</strong> Your call notes — rough, incomplete, and in any format. Claude handles messy input well.</p>
+    <h2>After the call: structured internal summary</h2>
+    <p><strong>When to use:</strong> You have rough notes from a call and want a clean, shareable internal record.</p>
+    <p><strong>What to paste in:</strong> Your call notes â rough, incomplete, any format. Claude handles messy input well.</p>
 
-    <div class="prompt-copy" id="meetings-internal-summary">"Here are my notes from a founder call with [project]: [paste notes]. Turn these into a structured internal summary with the following sections: Overview, Key Points Discussed, What's Compelling, Concerns &amp; Open Questions, Recommended Next Steps."</div>
-    <div class="prompt-copy" id="meetings-clean-notes">"Clean up and structure these call notes into a readable internal summary. Preserve all key information but make it easy to scan. Notes: [paste]."</div>
-    <div class="prompt-copy" id="meetings-brief-memo">"Here are my call notes: [paste]. Write this up as a brief memo I can share with the team. Max 300 words. Be direct about what's interesting and what's uncertain."</div>
+    <div class="prompt-copy" id="meetings-internal-summary">âHere are my notes from a founder call with [project]: [paste]. Turn these into a structured internal summary with: Overview, Key Claims Made, What Was Not Addressed or Deflected, and Recommended Next Steps.â</div>
+    <div class="prompt-copy" id="meetings-brief-memo">âHere are my call notes: [paste]. Write this up as a brief memo I can share with the team. Under 300 words. Be direct about whatâs compelling, whatâs uncertain, and what needs to be verified.â</div>
 
-    <h2>After the call: extracting action items</h2>
-    <p><strong>When to use:</strong> You want to make sure nothing falls through the cracks after a meeting.</p>
+    <h2>After the call: checking what the founder implied</h2>
+    <p><strong>When to use:</strong> You want to think through what you heard more carefully â not just what was said, but what it implies about the projectâs actual state.</p>
 
-    <div class="prompt-copy" id="meetings-action-items">"Here are my notes from a call with [project / person]: [paste]. Extract all action items and commitments. Present as two lists: things we said we would do, and things they said they would do."</div>
+    <div class="prompt-copy" id="meetings-implied-check">âHere are my notes from a founder call: [paste]. Based on what was said, what does this suggest about the actual state of the project â things that werenât stated directly? Which claims, if true, would be easy to verify? Which would be hard?â</div>
 
-    <h2>After the call: drafting a follow-up message</h2>
-    <p><strong>When to use:</strong> You want to send a prompt, professional follow-up to the founder after the meeting.</p>
+    <h2>After the call: action items and follow-up</h2>
+    <div class="prompt-copy" id="meetings-action-items">âHere are my notes from a call with [project]: [paste]. Extract all commitments and action items. Two lists: what we said we would do, and what they said they would do.â</div>
+    <div class="prompt-copy" id="meetings-follow-up">âDraft a follow-up message to [founder name] at [project]. Reference the call, acknowledge what was covered, and ask the two or three most important open questions. Tone: warm, direct, professional. Under 150 words.â</div>
 
-    <div class="prompt-copy" id="meetings-follow-up">"Draft a short follow-up message to a founder after a first meeting. The call went well. Key things to reference: [list 2–3 specific things from the conversation]. Include: a note of appreciation, 1–2 things we found genuinely interesting, and the agreed next step. Keep it brief and professional."</div>
-    <div class="prompt-copy" id="meetings-follow-up-materials">"Draft a polite follow-up message to a founder asking for [specific materials / data room access / answers to open questions]. We met on [date]. Keep it short, warm, and direct."</div>
+    <p>For a complete post-meeting workflow that structures notes, identifies gaps, and drafts the follow-up in sequence, see <a href="workflows.html">Workflows</a>.</p>
 
-    <a class="next-step" href="writing-comms.html">Next: Writing &amp; Internal Comms →</a>
+    <a class="next-step" href="writing-comms.html">Next: Writing &amp; Comms â</a>
   </main>
 
   <script src="search-data.js"></script>

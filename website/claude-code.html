@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Claude Code — Claude at 1kx</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <nav>
+    <a class="site-name" href="index.html">Claude at 1kx</a>
+    <ul>
+      <li><a href="beginner-path.html">Getting Started</a></li>
+      <li><a href="everyday-use.html">Everyday Use</a></li>
+      <li><a href="research-diligence.html">Research &amp; Diligence</a></li>
+      <li><a href="founder-meetings.html">Founder Meetings</a></li>
+      <li><a href="writing-comms.html">Writing &amp; Comms</a></li>
+      <li><a href="portfolio-support.html">Portfolio Support</a></li>
+      <li class="nav-sep" aria-hidden="true"></li>
+      <li><a href="thinking-tools.html">Thinking Tools</a></li>
+      <li><a href="workflows.html">Workflows</a></li>
+      <li><a href="skills.html">Skills</a></li>
+      <li><a href="claude-code.html">Claude Code</a></li>
+      <li><a href="prompt-templates.html">Prompt Templates</a></li>
+      <li><a href="safe-use.html">Safe Use</a></li>
+    </ul>
+    <div class="nav-search">
+      <input type="text" placeholder="Search prompts…" id="nav-search-input" autocomplete="off" />
+    </div>
+  </nav>
+
+  <main>
+    <p class="page-category">Advanced</p>
+    <h1>Claude Code</h1>
+    <p class="subtitle">When you need Claude to work with your actual files — not just answer questions about them.</p>
+
+    <h2>What Claude Code is</h2>
+    <p>Normal Claude works in a chat window. You type a message, Claude responds, you copy the output and use it somewhere. Claude has no access to your computer — it can only see what you paste in.</p>
+    <p>Claude Code is different. It runs in a terminal on your computer (the Terminal app on a Mac) and can read files, write files, make changes across multiple documents, and run tasks end to end — without you having to copy and paste anything. Think of it as the difference between asking someone for advice versus having them sit at your desk and actually do the work.</p>
+    <p>Claude Code is built for technical tasks — coding, editing files, managing projects. It is not a replacement for normal Claude chat, which handles the vast majority of 1kx's day-to-day use cases. But there are specific situations where it is clearly the better tool.</p>
+
+    <h2>Chat vs Code — the simple decision</h2>
+
+    <div class="tip-card"><strong>Stay with normal Claude chat when:</strong> you are writing, researching, analysing, or thinking through something. If your workflow is "I type a prompt and use the response," chat is the right tool. This covers almost everything on this site.</div>
+
+    <div class="tip-card"><strong>Consider Claude Code when:</strong> you need Claude to make changes to actual files on your computer, the task involves more than two or three documents that would be painful to copy-paste, or you want Claude to run a repeatable process across a whole folder or project rather than a single conversation.</div>
+
+    <h2>What you can do that normal chat cannot</h2>
+    <ul>
+      <li><strong>Edit multiple files at once.</strong> Change a template across ten documents in a single instruction. Update every instance of a name, format, or section structure in one go.</li>
+      <li><strong>Work across a whole project.</strong> Point Claude at a folder of documents and ask it to do something consistently across all of them — reorganise, reformat, find inconsistencies, extract information.</li>
+      <li><strong>Run tasks end to end.</strong> Give Claude an instruction and let it complete the full task without you managing each step. It can create files, modify them, check its own work, and report back.</li>
+      <li><strong>Build and update tools.</strong> If you or your team have any internal tools, templates, or systems that live in files, Claude Code can help maintain and update them without manual editing.</li>
+    </ul>
+
+    <h2>Real examples from building this site</h2>
+    <p>This website — the one you are reading — was built and maintained using Claude Code. A few concrete examples of what that looked like:</p>
+
+    <div class="card">
+      <div class="label">Adding search to every page</div>
+      <p style="margin-bottom: 0;">The search bar in the top-right navigation needed to be added to all ten pages with identical HTML. In chat, that would have been ten separate edits. In Claude Code, it was one instruction: "add the nav search input to every HTML file in this folder."</p>
+    </div>
+
+    <div class="card">
+      <div class="label">Updating the navigation structure</div>
+      <p style="margin-bottom: 0;">When the advanced section was added to the site, every page needed a new navigation structure with new links. Claude Code updated all pages simultaneously, consistently, in one session.</p>
+    </div>
+
+    <div class="card">
+      <div class="label">Building the search index</div>
+      <p style="margin-bottom: 0;">The search feature on this site works off a file called <code>search-data.js</code> that contains every prompt on the site. Claude Code built that file by reading all the HTML pages and extracting the relevant content — a task that would have taken hours manually.</p>
+    </div>
+
+    <h2>Three main use cases at 1kx</h2>
+    <p>Outside of technical work, there are three practical scenarios where Claude Code becomes worth considering:</p>
+    <ol>
+      <li><strong>Document management at scale.</strong> If you have a large number of documents — notes, reports, templates — that need to be reorganised, reformatted, or searched in a structured way, Claude Code can handle that as a single task.</li>
+      <li><strong>Maintaining internal templates.</strong> If 1kx has shared templates, standard documents, or internal tools that get updated periodically, Claude Code can make changes across all copies simultaneously.</li>
+      <li><strong>Automating repetitive file work.</strong> Any task that involves the same action on many files — renaming, reformatting, extracting specific information — is a good candidate.</li>
+    </ol>
+
+    <h2>What to expect if you try it</h2>
+    <p>Claude Code is accessed through the Terminal app on a Mac. If you have never used Terminal before, the fastest path is to ask someone technical at 1kx to set it up for you the first time — it takes a few minutes and you only do it once.</p>
+    <p>Once it is running, you use it in plain English. You describe what you want, Claude Code does it, and shows you what it changed. It asks for confirmation before making changes you might want to review first.</p>
+    <p>It is not for everyone, and it does not need to be. The chat interface covers almost all day-to-day use cases. But if you find yourself repeatedly doing manual work across multiple files, it is worth knowing this option exists.</p>
+
+    <div class="tip-card">
+      <strong>Not sure if Claude Code applies to your situation?</strong> Describe what you're trying to do to someone using this site — if the answer is "this would take 20 minutes of copy-pasting", Claude Code is probably the right tool.
+    </div>
+
+    <a class="next-step" href="prompt-templates.html">Next: Prompt Templates →</a>
+  </main>
+
+  <script src="search-data.js"></script>
+  <script src="nav-search.js"></script>
+</body>
+</html>

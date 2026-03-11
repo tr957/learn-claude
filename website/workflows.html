@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Workflows — Claude at 1kx</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <nav>
+    <a class="site-name" href="index.html">Claude at 1kx</a>
+    <ul>
+      <li><a href="beginner-path.html">Getting Started</a></li>
+      <li><a href="everyday-use.html">Everyday Use</a></li>
+      <li><a href="research-diligence.html">Research &amp; Diligence</a></li>
+      <li><a href="founder-meetings.html">Founder Meetings</a></li>
+      <li><a href="writing-comms.html">Writing &amp; Comms</a></li>
+      <li><a href="portfolio-support.html">Portfolio Support</a></li>
+      <li class="nav-sep" aria-hidden="true"></li>
+      <li><a href="thinking-tools.html">Thinking Tools</a></li>
+      <li><a href="workflows.html">Workflows</a></li>
+      <li><a href="skills.html">Skills</a></li>
+      <li><a href="claude-code.html">Claude Code</a></li>
+      <li><a href="prompt-templates.html">Prompt Templates</a></li>
+      <li><a href="safe-use.html">Safe Use</a></li>
+    </ul>
+    <div class="nav-search">
+      <input type="text" placeholder="Search prompts…" id="nav-search-input" autocomplete="off" />
+    </div>
+  </nav>
+
+  <main>
+    <p class="page-category">Advanced</p>
+    <h1>Workflows</h1>
+    <p class="subtitle">Multi-step Claude processes that take you from raw input to finished output — the same way, every time.</p>
+
+    <p>A single prompt gives you one output. A workflow chains several prompts in sequence — each step building on the last — so you get something more complete than any single prompt could produce. The goal is a repeatable process you can run without thinking about it.</p>
+    <p>Each workflow below shows the full chain of prompts in order. Run them sequentially in the same conversation, or save them as a skill once you've refined them to your liking.</p>
+
+    <h2>Pre-investment workflow</h2>
+    <p>Takes a new pitch deck or whitepaper from raw material to a structured view: what it is, why it might fail, and what questions remain.</p>
+    <div class="tip-card"><strong>Best when:</strong> you receive a new deck or whitepaper and need to go from cold material to a structured investment view before a call or internal discussion.</div>
+
+    <div class="card">
+      <div class="label">Step 1 — Summarise the opportunity</div>
+      <div class="prompt-copy" id="workflow-preinvest-1">"Here is a pitch deck or whitepaper for [project]: [paste]. Summarise in three sections: (1) what the project does and what problem it solves, (2) how the token model works and how value accrues to holders, (3) the team's relevant credentials and anything worth flagging about their background."</div>
+    </div>
+
+    <div class="card">
+      <div class="label">Step 2 — Stress-test the thesis</div>
+      <div class="prompt-copy" id="workflow-preinvest-2">"Based on the summary above, argue against investing. What are the three strongest reasons this investment fails? Be specific to this project — not generic investment risks."</div>
+    </div>
+
+    <div class="card">
+      <div class="label">Step 3 — Surface open questions</div>
+      <div class="prompt-copy" id="workflow-preinvest-3">"Based on everything above, list the five most important questions that are still unanswered. For each one: how critical is the answer to the investment case (high / medium / low), and how answerable is it before we invest?"</div>
+    </div>
+
+    <h2>Post-meeting workflow</h2>
+    <p>Turns rough call notes into a clean internal record, identifies what was left unaddressed, and drafts the follow-up — in three steps.</p>
+    <div class="tip-card"><strong>Best when:</strong> you've just come off a founder call with scattered notes and need a clean record plus follow-up actions within the hour.</div>
+
+    <div class="card">
+      <div class="label">Step 1 — Structure the notes</div>
+      <div class="prompt-copy" id="workflow-postmeeting-1">"Here are my raw notes from a founder call with [project]: [paste]. Rewrite as a structured summary with three sections: (1) context on the company in one paragraph, (2) key claims made by the founder as bullet points, (3) what was explicitly not addressed or deflected when asked."</div>
+    </div>
+
+    <div class="card">
+      <div class="label">Step 2 — Identify the gaps</div>
+      <div class="prompt-copy" id="workflow-postmeeting-2">"Looking at the summary above: what are the five most significant things that remain open? Focus on questions that are material to an investment decision — not just things that weren't covered in passing."</div>
+    </div>
+
+    <div class="card">
+      <div class="label">Step 3 — Draft the follow-up</div>
+      <div class="prompt-copy" id="workflow-postmeeting-3">"Draft a follow-up email to [founder name] at [project]. Reference the call, acknowledge what was covered, and ask the three most important open questions. Tone: warm, direct, professional. Keep it under 150 words."</div>
+    </div>
+
+    <h2>Due diligence workflow</h2>
+    <p>A structured three-step process for mid-diligence work: mapping what you know, cross-checking claims, and writing a gap list that tells you exactly what's left to verify.</p>
+    <div class="tip-card"><strong>Best when:</strong> you are mid-process on a deal with a mix of documents, call notes, and partial information, and want a structured way to know where you stand.</div>
+
+    <div class="card">
+      <div class="label">Step 1 — Map what you know and don't know</div>
+      <div class="prompt-copy" id="workflow-dd-1">"Here is everything I have on [project] so far: [paste all materials]. Organise into three categories: confirmed (supported by evidence I've seen), claimed (stated by the team but not yet verified), and unknown (not addressed at all). Focus on: token model, team, competitive position, and go-to-market."</div>
+    </div>
+
+    <div class="card">
+      <div class="label">Step 2 — Cross-check the claims</div>
+      <div class="prompt-copy" id="workflow-dd-2">"Here are specific claims made by [project] across these sources: [paste]. For each claim: is it internally consistent across sources, does any evidence contradict it, and is it independently verifiable or does it require us to take their word for it?"</div>
+    </div>
+
+    <div class="card">
+      <div class="label">Step 3 — Write the gap list</div>
+      <div class="prompt-copy" id="workflow-dd-3">"Based on the diligence so far, write a gap list. For each open question: what information would close it, where that information could realistically come from, and whether it is a hard blocker or a nice-to-have before making a decision."</div>
+    </div>
+
+    <h2>Building your own workflow</h2>
+    <p>Any process you run more than a few times is a candidate for a workflow. The pattern is the same regardless of what the task is:</p>
+    <ol>
+      <li><strong>Start with the input.</strong> What raw material goes in — a document, a set of notes, a situation?</li>
+      <li><strong>Define the output.</strong> What do you want to have at the end? A memo, a decision, a list of questions?</li>
+      <li><strong>Break it into steps.</strong> What has to happen in sequence to get from input to output? Each step is one prompt.</li>
+      <li><strong>Run it once and refine.</strong> The first version will be rough. Adjust each step until the output is genuinely useful.</li>
+      <li><strong>Save it as a skill.</strong> Once it works, write it down properly so anyone on the team can run it the same way. See the <a href="skills.html">Skills page</a>.</li>
+    </ol>
+
+    <a class="next-step" href="skills.html">Next: Skills →</a>
+  </main>
+
+  <script src="search-data.js"></script>
+  <script src="nav-search.js"></script>
+</body>
+</html>

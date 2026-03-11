@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Writing &amp; Comms — Claude at 1kx</title>
+  <title>Writing &amp; Comms â Claude at 1kx</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -16,12 +16,16 @@
       <li><a href="founder-meetings.html">Founder Meetings</a></li>
       <li><a href="writing-comms.html">Writing &amp; Comms</a></li>
       <li><a href="portfolio-support.html">Portfolio Support</a></li>
+      <li class="nav-sep" aria-hidden="true"></li>
+      <li><a href="thinking-tools.html">Thinking Tools</a></li>
+      <li><a href="workflows.html">Workflows</a></li>
+      <li><a href="skills.html">Skills</a></li>
+      <li><a href="claude-code.html">Claude Code</a></li>
       <li><a href="prompt-templates.html">Prompt Templates</a></li>
-      <li><a href="going-further.html">Going Further</a></li>
       <li><a href="safe-use.html">Safe Use</a></li>
     </ul>
     <div class="nav-search">
-      <input type="search" placeholder="Search prompts…" id="nav-search-input" autocomplete="off" />
+      <input type="text" placeholder="Search promptsâ¦" id="nav-search-input" autocomplete="off" />
     </div>
   </nav>
 
@@ -34,44 +38,33 @@
     </div>
 
     <p class="page-category">Writing &amp; Comms</p>
-    <h1>Writing &amp; Internal Comms</h1>
-    <p class="subtitle">Memos, messages, slides, outreach — faster and cleaner.</p>
+    <h1>Writing &amp; Comms</h1>
+    <p class="subtitle">Outreach, introductions, LP communications, and internal coordination â faster and cleaner.</p>
 
-    <h2>Turning rough notes into a memo</h2>
-    <p><strong>When to use:</strong> You have notes from a meeting, research session, or discussion and need them turned into something clean and shareable.</p>
-    <p><strong>What to paste in:</strong> Your raw notes — bullet points, stream of consciousness, anything. The messier, the more valuable this is.</p>
+    <h2>Outreach to founders and projects</h2>
+    <p><strong>When to use:</strong> Cold outreach, inbound follow-up, or any first message to a founder or project where tone and specificity matter.</p>
 
-    <div class="prompt-copy" id="writing-rough-memo">"Here are my rough notes: [paste]. Turn these into a clean internal memo. Structure: one-paragraph summary at the top, key points, and any recommended actions. Keep it concise — under 300 words."</div>
-    <div class="prompt-copy" id="writing-internal-memo">"I need to write an internal memo on [topic]. Here's what I want to convey: [paste notes or bullet points]. Draft a professional memo with a clear structure. Audience: colleagues at a crypto investment firm."</div>
-    <div class="prompt-copy" id="writing-meeting-memo">"Here are notes from a meeting about [topic]: [paste]. Write this up as a short memo that someone who wasn't in the meeting could read and understand. Include: context, key decisions or conclusions, and next steps."</div>
+    <div class="prompt-copy" id="writing-outreach">âDraft a short outreach message to [person / team] at [project]. Purpose: [explain specifically why weâre reaching out â not just âweâre interested in your workâ]. Tone: direct and specific. Length: under 5 sentences. We are reaching out from 1kx.â</div>
+    <div class="prompt-copy" id="writing-follow-up">âDraft a follow-up message to [person] who I contacted [X days ago] about [topic] and havenât heard back from. Brief, non-pushy, professional. Reference something specific from the original message.â</div>
 
-    <h2>Structuring slides and talking points</h2>
-    <p><strong>When to use:</strong> You're preparing for a presentation or discussion and want a clear structure before building the slides.</p>
+    <h2>Introduction emails</h2>
+    <p><strong>When to use:</strong> You want to introduce two people and need the message to be specific enough that both feel the introduction is worth their time.</p>
 
-    <div class="prompt-copy" id="writing-slides-outline">"I'm preparing a presentation on [topic] for [audience — e.g. the team, an LP, a founder]. Here are my key points: [paste]. Structure these into a logical 5-slide outline with: slide title, one-sentence summary, and 3 bullet points per slide."</div>
-    <div class="prompt-copy" id="writing-talking-points">"Here are my talking points for [meeting / presentation]: [paste]. Organise these into a logical flow and tell me if anything important seems missing or out of order."</div>
-    <div class="prompt-copy" id="writing-cut-down">"I have [X] minutes to present [topic]. Here are all my points: [paste]. Help me cut this down to the most important things and suggest a clear order."</div>
+    <div class="prompt-copy" id="writing-introduction">âI want to introduce [Person A] to [Person B]. Write a double opt-in email introduction: one sentence on each person, why this specific introduction makes sense for both of them, and a single clear call to action. Keep it under 100 words.â</div>
 
-    <h2>Drafting outreach messages</h2>
-    <p><strong>When to use:</strong> Cold outreach, intro requests, partnership messages, or any external communication where tone matters.</p>
+    <h2>LP and investor communications</h2>
+    <p><strong>When to use:</strong> You need to communicate an investment decision, portfolio update, or market perspective to LPs or co-investors.</p>
 
-    <div class="prompt-copy" id="writing-outreach">"Draft a short, professional outreach message to [person / team] at [project]. Purpose: [explain why you're reaching out]. Tone: direct but warm. Length: under 5 sentences. We are reaching out from 1kx."</div>
-    <div class="prompt-copy" id="writing-introduction">"I want to introduce [Person A] to [Person B]. Write a short double opt-in email introduction — one sentence on each person, why the introduction makes sense, and a clear call to action."</div>
-    <div class="prompt-copy" id="writing-follow-up">"Draft a follow-up message to [person] who I emailed [X days ago] about [topic] and haven't heard back from. Keep it brief, non-pushy, and professional."</div>
+    <div class="prompt-copy" id="writing-lp-update">âI need to write a brief update to our LPs on [topic â e.g. a new investment, a portfolio development, a market view]. Here are the key points I want to convey: [paste notes]. Draft a clear, professional update that is honest about uncertainty where it exists. Audience: sophisticated investors who know the space. Length: under 300 words.â</div>
+    <div class="prompt-copy" id="writing-investment-rationale">âI need to communicate why we made [investment] to [audience â e.g. LPs, co-investors, the broader team]. Here is the investment rationale: [paste]. Write a clear, confident explanation that covers: what we believed, why we acted when we did, and what would need to be true for the investment to work. Avoid promotional language.â</div>
 
-    <h2>Internal coordination messages</h2>
-    <p><strong>When to use:</strong> You need to update colleagues, make a clear ask, or coordinate across the team without writing a long message.</p>
+    <h2>Internal coordination</h2>
+    <p><strong>When to use:</strong> You need to update the team, make a clear ask, or coordinate across the firm without writing a long message.</p>
 
-    <div class="prompt-copy" id="writing-slack-update">"Draft a Slack message to my team with a brief update on [topic]. Key info: [paste notes]. Keep it under 5 lines and easy to skim."</div>
-    <div class="prompt-copy" id="writing-team-ask">"I need to ask [colleague / team] to [task or request]. Draft a clear, direct message that explains what's needed, why, and by when. Keep it polite and brief."</div>
+    <div class="prompt-copy" id="writing-slack-update">âDraft a Slack message to the team with a brief update on [topic]. Key info: [paste notes]. Under 5 lines. Easy to skim. Flag clearly if any action is needed from anyone.â</div>
+    <div class="prompt-copy" id="writing-team-ask">âI need to ask [colleague / team] to [task or request]. Draft a message that explains whatâs needed, why, and by when. Direct and brief â no padding.â</div>
 
-    <h2>Improving something you've already written</h2>
-    <p><strong>When to use:</strong> You've written a draft but it feels unclear, too long, or off in tone.</p>
-
-    <div class="prompt-copy" id="writing-improve-clarity">"Here's something I wrote: [paste]. Can you improve the clarity and conciseness? Keep the same meaning and don't change the tone significantly."</div>
-    <div class="prompt-copy" id="writing-review-draft">"Read this and tell me: is it clear? Is anything missing? Is the structure logical? Here it is: [paste]."</div>
-
-    <a class="next-step" href="portfolio-support.html">Next: Portfolio Support →</a>
+    <a class="next-step" href="portfolio-support.html">Next: Portfolio Support â</a>
   </main>
 
   <script src="search-data.js"></script>

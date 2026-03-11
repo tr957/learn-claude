@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Thinking Tools — Claude at 1kx</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <nav>
+    <a class="site-name" href="index.html">Claude at 1kx</a>
+    <ul>
+      <li><a href="beginner-path.html">Getting Started</a></li>
+      <li><a href="everyday-use.html">Everyday Use</a></li>
+      <li><a href="research-diligence.html">Research &amp; Diligence</a></li>
+      <li><a href="founder-meetings.html">Founder Meetings</a></li>
+      <li><a href="writing-comms.html">Writing &amp; Comms</a></li>
+      <li><a href="portfolio-support.html">Portfolio Support</a></li>
+      <li class="nav-sep" aria-hidden="true"></li>
+      <li><a href="thinking-tools.html">Thinking Tools</a></li>
+      <li><a href="workflows.html">Workflows</a></li>
+      <li><a href="skills.html">Skills</a></li>
+      <li><a href="claude-code.html">Claude Code</a></li>
+      <li><a href="prompt-templates.html">Prompt Templates</a></li>
+      <li><a href="safe-use.html">Safe Use</a></li>
+    </ul>
+    <div class="nav-search">
+      <input type="text" placeholder="Search prompts…" id="nav-search-input" autocomplete="off" />
+    </div>
+  </nav>
+
+  <main>
+    <p class="page-category">Advanced</p>
+    <h1>Thinking Tools</h1>
+    <p class="subtitle">Prompts that pressure-test ideas, expose hidden assumptions, and make your analysis harder to argue with.</p>
+
+    <p>Most prompts ask Claude to produce something. These prompts ask Claude to challenge something — your thesis, a founder's claims, a set of assumptions. Use them when you want your thinking to be more rigorous, not just faster.</p>
+
+    <h2>Red-team your thesis</h2>
+    <p>Before committing to an investment view, have Claude build the strongest possible case against it. Not a balanced list of pros and cons — a genuine adversarial argument designed to break the thesis.</p>
+    <div class="tip-card"><strong>Best when:</strong> you have a view you believe in and want to stress-test it before presenting to the partnership or deploying capital.</div>
+
+    <div class="prompt-copy" id="thinking-redteam">"Here is my investment thesis for [project]: [paste]. Argue against it as forcefully as you can. Assume the investment fails. What are the three most compelling reasons it does? Don't balance this with positives — I want the strongest possible bear case."</div>
+
+    <h2>Map the assumptions your thesis depends on</h2>
+    <p>Every investment case is built on assumptions. Some are well-supported. Some are guesses dressed as facts. This prompt surfaces all of them and forces you to categorise them by how critical and how testable they are.</p>
+    <div class="tip-card"><strong>Best when:</strong> you want to know which parts of an investment case are solid and which are load-bearing but unverified — before you spend time diligencing the wrong things.</div>
+
+    <div class="prompt-copy" id="thinking-assumptions">"Here is an investment thesis or pitch summary: [paste]. List every assumption this argument depends on to be true. For each assumption: how critical is it to the investment case (high / medium / low), how well-supported is it right now (verified / plausible / unverified), and what evidence would confirm or rule it out?"</div>
+
+    <h2>Check for contradictions across sources</h2>
+    <p>Founders present their projects in multiple places — whitepapers, interviews, pitch decks, Discord posts. When you have two or more of these, Claude can find where the narrative doesn't hold together.</p>
+    <div class="tip-card"><strong>Best when:</strong> you're mid-diligence and want to surface claims that have been quietly walked back, changed between versions, or that don't match the technical documentation.</div>
+
+    <div class="prompt-copy" id="thinking-contradictions">"Here are two sources of information about [project]: [source A — paste] and [source B — paste]. Identify: claims that appear in one source but not the other, statements that directly contradict each other, and any places where what is said publicly does not match the technical documentation."</div>
+
+    <h2>Simulate a skeptical LP</h2>
+    <p>Generating the tough questions yourself is harder than it looks. This prompt has Claude play a well-informed, critical LP — the kind who has seen a lot of deals and won't accept vague answers.</p>
+    <div class="tip-card"><strong>Best when:</strong> preparing to present an investment case to the partnership, to LPs, or to any audience that will push back.</div>
+
+    <div class="prompt-copy" id="thinking-skeptical-lp">"I am about to present this investment case to a skeptical audience: [paste summary or memo]. Generate five hard questions a well-informed critic would ask — questions that expose weak assumptions, missing evidence, or claims that don't hold up under scrutiny. Then draft concise, honest answers to each, including where the honest answer is 'we don't know yet'."</div>
+
+    <h2>Map second-order effects</h2>
+    <p>Most analysis stops at the obvious first-order outcome. This prompt pushes further — what follows from that outcome, and what follows after that. Useful for evaluating market events, regulatory changes, or strategic decisions.</p>
+    <div class="tip-card"><strong>Best when:</strong> evaluating a market development, a protocol change, or a strategic decision where the non-obvious downstream effects matter more than the immediate ones.</div>
+
+    <div class="prompt-copy" id="thinking-second-order">"Here is a market event or decision: [describe]. Walk me through the second and third-order effects. For each immediate outcome, what follows — and what follows after that? Which downstream effects are most likely to be underpriced or overlooked by most observers?"</div>
+
+    <h2>Test competitive differentiation</h2>
+    <p>In crypto, many projects make similar claims in different language. This prompt identifies what's genuinely differentiated versus what's marketing vocabulary, and what the real structural differences come down to.</p>
+    <div class="tip-card"><strong>Best when:</strong> mapping a crowded category and trying to understand whether a project's edge is real or narrative.</div>
+
+    <div class="prompt-copy" id="thinking-differentiation">"Here are positioning statements from competing projects in [space]: [paste]. For each claim: is this genuinely differentiated, or are multiple projects making the same assertion with different words? Which claims are independently verifiable? What does the real technical or structural differentiation come down to?"</div>
+
+    <div class="tip-card">
+      <strong>Note:</strong> These prompts work best when you paste in real material — a thesis you have actually written, a document you are actually evaluating. Generic inputs produce generic outputs.
+    </div>
+
+    <a class="next-step" href="workflows.html">Next: Workflows →</a>
+  </main>
+
+  <script src="search-data.js"></script>
+  <script src="nav-search.js"></script>
+</body>
+</html>
